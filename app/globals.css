@@ -37,3 +37,35 @@
 .privacy-footer{background:#0b0d12;color:#969aa4;text-align:center;padding:28px;font-size:11px}
 @media(max-width:820px){.languages-inner{grid-template-columns:1fr;gap:25px}}
 @media(max-width:550px){.hero h1{font-size:clamp(46px,11.7vw,67px);line-height:1.03}.hero-offer{flex-wrap:wrap}.languages-band{padding:40px 0}.language-list>div{padding:12px}.language-list strong{font-size:12px}.privacy-header .container{flex-direction:column;align-items:flex-start}.privacy-body{padding-top:40px;padding-bottom:60px}}
+
+/* KeyLane cinematic motion system */
+.hero{isolation:isolate}
+.hero-photo{will-change:transform;animation:heroDriving 22s ease-in-out infinite alternate;background-position:center 52%}
+.hero-road-glow{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;mix-blend-mode:screen;opacity:.65}
+.hero-road-glow span{position:absolute;bottom:12%;left:-40%;height:2px;width:60%;transform-origin:left center;transform:rotate(-5deg);background:linear-gradient(90deg,transparent,#e1060000 12%,#e10600 48%,#ff3b35 62%,transparent);filter:blur(1px);animation:laneRush 7s linear infinite}
+.hero-road-glow span:nth-child(2){bottom:9%;height:3px;animation-delay:-3.3s;animation-duration:8.5s;opacity:.72}
+.hero-road-glow span:nth-child(3){bottom:15%;height:1px;animation-delay:-5.3s;animation-duration:10s;opacity:.5}
+.hero-red-halo{position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse 55% 50% at 88% 62%,#d60b0718,transparent 74%);animation:glowPulse 8s ease-in-out infinite alternate}
+.hero-shade{z-index:1}
+.hero-inner{z-index:2}
+.hero-bottom-line{z-index:2}
+.hero-title-line{display:inline-block;animation:titleReveal .8s cubic-bezier(.22,.9,.3,1) both}
+.hero-title-red{animation-delay:.16s}
+.hero-eyebrow{animation:titleReveal .65s ease .05s both}
+.hero-offer{animation:titleReveal .65s ease .26s both}
+.hero-copy>p{animation:titleReveal .65s ease .36s both}
+.hero-buttons{animation:titleReveal .65s ease .46s both}
+.hero-benefits{animation:titleReveal .65s ease .58s both}
+.scroll-reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.scroll-reveal.is-visible{opacity:1;transform:translateY(0)}
+.service-card.scroll-reveal:nth-child(2),.step.scroll-reveal:nth-child(2){transition-delay:.09s}
+.service-card.scroll-reveal:nth-child(3),.step.scroll-reveal:nth-child(3){transition-delay:.18s}
+.service-card.scroll-reveal:nth-child(4){transition-delay:.09s}
+.service-card.scroll-reveal:nth-child(5){transition-delay:.18s}
+.service-card.scroll-reveal:nth-child(6){transition-delay:.27s}
+@keyframes heroDriving{0%{transform:scale(1.03) translate3d(0,0,0)}100%{transform:scale(1.12) translate3d(-1.2%,0,0)}}
+@keyframes laneRush{0%{transform:translateX(-45%) rotate(-5deg);opacity:0}15%{opacity:.9}80%{opacity:.8}100%{transform:translateX(230%) rotate(-5deg);opacity:0}}
+@keyframes glowPulse{from{opacity:.4}to{opacity:1}}
+@keyframes titleReveal{from{opacity:0;transform:translate3d(0,20px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@media(max-width:820px){.hero-road-glow{opacity:.34}.hero-photo{background-position:62% center}.scroll-reveal{transform:translateY(15px)}}
+@media(prefers-reduced-motion:reduce){.hero-photo,.hero-road-glow span,.hero-red-halo,.hero-title-line,.hero-eyebrow,.hero-offer,.hero-copy>p,.hero-buttons,.hero-benefits{animation:none!important}.scroll-reveal{opacity:1!important;transform:none!important;transition:none!important}}
