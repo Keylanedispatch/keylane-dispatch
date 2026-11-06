@@ -22,7 +22,7 @@ const faqs=[
  {q:"Are you a freight broker?",a:"No. KeyLane is a dispatch service working for you, the carrier. Brokers pay you or your factoring company directly. We never handle your freight money."},
 ];
 function Brand({light=false}:{light?:boolean}){
- return <a className={"brand "+(light?"brand-light":"")} href="#top" aria-label="KeyLane Dispatch home"><span className="brand-mark"><span className="brand-letter">K</span><span className="brand-stripe"/></span><span className="brand-type"><span><b>Key</b><strong>Lane</strong></span><small>DISPATCH</small></span></a>
+ return <a className={"brand "+(light?"brand-light":"")} href="/#top" aria-label="KeyLane Dispatch home"><img src={light?"/keylane-logo-light.svg":"/keylane-logo.svg"} alt="KeyLane Dispatch" width="230" height="65" /></a>
 }
 export default function Home(){
  const [menuOpen,setMenuOpen]=useState(false);
