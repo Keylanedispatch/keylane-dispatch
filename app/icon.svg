@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="KeyLane road K icon">
-<path d="M26 16h38L46 82l62-66h43L85 82l59 62h-47L58 99l-12 45H8z" fill="#0B0D12"/>
-<path d="M9 144C39 95 79 57 137 35c-36 29-62 65-82 109z" fill="#E10600"/>
-<path d="m35 129 12-11-7-4-10 10zm19-20 13-11-6-5-12 11zm21-20 13-10-6-5-12 10zm21-19 12-9-5-4-12 9z" fill="#fff"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><rect width="256" height="256" rx="40" fill="#0B0D12"/><g transform="translate(25.60 68.59) scale(0.7817)"><g transform="translate(16 0)"><polygon points="42,0 110,0 79,88 56,104 26,126 2,146 -14,152" fill="#FFFFFF"/><polygon points="84,68 156,0 234,0 168,60 114,73 80,92" fill="#FFFFFF"/><polygon points="138,86 172,62 246,150 190,150" fill="#FFFFFF"/><path d="M-16 150 C 28 100, 100 70, 170 57 C 126 80, 94 112, 68 150 Z" fill="#E10600"/><path d="M24 150 C 58 110, 108 80, 158 63" stroke="#FFFFFF" stroke-width="3.4" fill="none" stroke-dasharray="10 8"/></g></g></svg>
