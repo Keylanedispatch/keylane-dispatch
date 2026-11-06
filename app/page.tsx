@@ -1,5 +1,5 @@
 "use client";
-import {useState} from "react";
+import {useEffect,useState} from "react";
 import {ArrowRight, ArrowUpRight, Check, ChevronDown, ChevronRight, ClipboardList, FileCheck2, Headphones, Menu, Phone, Route, ShieldCheck, Truck, X, Calculator, Mail, MapPin, Zap, Clock3, Send} from "lucide-react";
 
 const PHONE="+1 (404) 203-2894";
@@ -26,6 +26,16 @@ function Brand({light=false}:{light?:boolean}){
 }
 export default function Home(){
  const [menuOpen,setMenuOpen]=useState(false);
+ useEffect(()=>{
+  const targets=document.querySelectorAll(".section-heading,.service-card,.equipment-layout,.pricing-copy,.calculator,.center-heading,.step,.faq-grid,.contact-copy,.lead-form,.intro-grid,.languages-inner,.founder-inner");
+  if(!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches){targets.forEach(el=>el.classList.add("is-visible"));return;}
+  targets.forEach(el=>el.classList.add("scroll-reveal"));
+  const observer=new IntersectionObserver(entries=>{
+   entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target)}});
+  },{rootMargin:"0px 0px -48px 0px",threshold:0.12});
+  targets.forEach(el=>observer.observe(el));
+  return ()=>observer.disconnect();
+ },[]);
  const [gross,setGross]=useState(6000);
  const [percent,setPercent]=useState(7);
  const [selected,setSelected]=useState("Dry Van");
@@ -75,12 +85,12 @@ export default function Home(){
     <button className="mobile-menu" aria-label={menuOpen?"Close menu":"Open menu"} aria-expanded={menuOpen} onClick={()=>setMenuOpen(v=>!v)}>{menuOpen?<X/>:<Menu/>}</button>
   </div></header>
   <section className="hero" aria-labelledby="hero-title">
-   <div className="hero-photo" role="img" aria-label="Semi truck on an open road"/>
+   <div className="hero-photo" role="img" aria-label="American long-nose semi truck traveling on a highway at dusk"/><div className="hero-road-glow" aria-hidden="true"><span/><span/><span/></div><div className="hero-red-halo" aria-hidden="true"/>
    <div className="hero-shade"/>
    <div className="container hero-inner">
     <div className="hero-copy">
      <span className="eyebrow hero-eyebrow"><span className="red-line"/> BUILT FOR OWNER-OPERATORS & SMALL FLEETS</span><div className="hero-offer"><span>WELCOME OFFER</span><strong>YOUR FIRST LOAD IS FREE</strong></div>
-     <h1 id="hero-title">BETTER LANES.<br/><em>BETTER RATES.</em></h1>
+     <h1 id="hero-title"><span className="hero-title-line">BETTER LANES.</span><br/><em className="hero-title-line hero-title-red">BETTER RATES.</em></h1>
      <p>Your first dispatched load is FREE. Then it's 5% for 30 days, 7% after. Drive with confidence and dispatch support in four languages.</p>
      <div className="hero-buttons"><a className="btn btn-red btn-lg" href="#contact">Get a Free Consultation <ArrowUpRight size={19}/></a><a className="btn btn-outline-light btn-lg" href="#services">Explore Our Services <ArrowRight size={19}/></a></div>
      <div className="hero-benefits"><span><Check size={15}/> First load free</span><span><Check size={15}/> No forced dispatch</span><span><Check size={15}/> EN · FR · ES · KREYÒL</span></div>
