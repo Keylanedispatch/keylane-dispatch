@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 166" role="img" aria-label="KeyLane Dispatch logo, light">
+<path d="M18 15h44L43 89l67-74h48L87 88l65 64h-51L58 106l-13 46H0z" fill="#FFFFFF"/>
+<path d="M0 152C29 99 81 53 145 33c-40 33-69 71-91 119z" fill="#E10600"/>
+<path d="m25 136 13-11-6-5-12 11zm24-23 13-11-6-5-12 11zm25-22 13-10-6-5-12 10zm24-18 12-9-5-4-12 9z" fill="#fff"/>
+<g font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="66" letter-spacing="-4"><text x="176" y="99" fill="#FFFFFF">Key</text><text x="304" y="99" fill="#E10600">Lane</text></g>
+<text x="181" y="143" fill="#FFFFFF" font-family="Montserrat,Arial,sans-serif" font-weight="700" font-size="22" letter-spacing="15">DISPATCH</text></svg>
