@@ -1,0 +1,29 @@
+name: Vendor the hero video one time
+on:
+  push:
+    paths:
+      - .github/workflows/vendor-hero.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  vendor-hero:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download licensed truck footage and compress to 720p
+        run: |
+          set -euo pipefail
+          mkdir -p public/media
+          curl -fL --retry 3 --max-time 120 'https://videos.pexels.com/video-files/17899033/17899033-hd_1920_1080_24fps.mp4' -o /tmp/keylane-source.mp4
+          ffmpeg -y -loglevel error -i /tmp/keylane-source.mp4 -vf 'fps=15,scale=-2:720' -c:v libx264 -preset veryfast -crf 37 -an -movflags +faststart -t 8 public/media/keylane-live-drive.mp4
+          test $(stat -c%s public/media/keylane-live-drive.mp4) -lt 4194304
+          ffprobe -v error -show_entries stream=width,height -of csv=p=0 public/media/keylane-live-drive.mp4 | grep -q ',720'
+      - name: Commit video binary to the repository
+        run: |
+          git config user.name "KeyLane Media Bot"
+          git config user.email "info@keylanedispatch.com"
+          git add public/media/keylane-live-drive.mp4
+          git diff --cached --quiet || (git commit -m "Vendor licensed 720p driving footage locally" && git push)
