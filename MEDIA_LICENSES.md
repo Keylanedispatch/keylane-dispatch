@@ -1,33 +1,41 @@
-# KeyLane Dispatch Media Licenses
+# KeyLane Dispatch Media Inventory
 
-## Equipment photography
+All runtime imagery and video are committed directly to this repository. The website does not download assets at build time.
 
-At build time, `scripts/prepare-media.mjs` retrieves the following original Pexels images, converts them to 1200 × 675 WebP with aspect-preserving containment, and serves them from `public/equipment/`. All stock images use the [Pexels free license](https://www.pexels.com/license/), which permits standard commercial website use.
+## Approved equipment illustrations
 
-| Local asset | Source URL | Photographer | License |
-|---|---|---|---|
-| dry-van.webp | https://www.pexels.com/photo/red-semi-truck-on-the-road-6563903/ | Quintin Gellar | Pexels free |
-| reefer.webp | https://www.pexels.com/photo/white-dump-truck-near-pine-tress-during-daytime-93398/ | 500photos.com | Pexels free |
-| flatbed.webp | https://www.pexels.com/photo/red-semi-truck-on-scenic-oregon-highway-37538286/ | Alex Kovshovik | Pexels free |
-| hotshot.webp | https://www.pexels.com/photo/white-pickup-truck-on-the-road-14438396/ | Matt Weissinger | Pexels free |
-| box-truck.webp | https://www.pexels.com/photo/white-delivery-truck-on-urban-road-in-daylight-31049388/ | NGUYỄN THÀNH NHƠN | Pexels free |
-| power-only.webp | https://www.pexels.com/photo/green-semi-truck-parked-under-dramatic-sky-33262905/ | R9 Media Photo Collective | Pexels free |
+These six original, AI-generated illustrations were individually reviewed and approved by the KeyLane Dispatch owner. All six have red cabs (as applicable), white or equipment-specific trailers, an isometric 3D rendering style, and light backgrounds. The user explicitly prohibited substituting stock photos or regenerating them without approval.
 
-NOTE: Some source photos may depict an illustrative rather than exact equipment configuration, especially hotshot (pickup without a visible trailer) and power-only. Those need replacement with exact, verified images before claiming precise truck-type representation. Check original photographs for visible company names, logos and plates before public use.
+| Local path | Equipment | Asset origin / authorization |
+| --- | --- | --- |
+| `public/equipment/reefer.webp` | Reefer with refrigeration unit | Owner-approved generated KeyLane illustration |
+| `public/equipment/dry-van.webp` | Enclosed dry van | Owner-approved generated KeyLane illustration |
+| `public/equipment/hotshot.webp` | Red dually pickup with gooseneck trailer | Owner-approved generated KeyLane illustration |
+| `public/equipment/flatbed.webp` | Red semi with open flatbed | Owner-approved generated KeyLane illustration |
+| `public/equipment/power-only.webp` | Red tractor, no trailer | Owner-approved generated KeyLane illustration |
+| `public/equipment/box-truck.webp` | Red cab and white straight cargo box | Owner-approved generated KeyLane illustration |
 
-## Owner photographs
+All six are 1200 × 675 pixel WebP website derivatives of the owner-approved images. Do not replace them with stock equipment photos.
 
-- `public/team/johnson-headshot.webp` is the owner-supplied KeyLane portrait.
-- `public/team/johnson-desk.webp` is the owner-supplied dispatch desk photo.
-- The owner describes these as photos of himself, taken by the owner. Files are processed into WebP from the owner-provided media CDN in the build script. No external CDN URLs appear in the runtime page markup.
-- The owner provided both photos for use on this website.
+## KeyLane owner media
 
-## Hero footage
+- `public/team/johnson-desk.webp`: owner-provided dispatch-workstation image showing Johnson. The user identifies it as his photo and approved use on the site. Photographer/copyright attribution beyond the owner's submission has not been independently established.
+- The former `johnson-headshot.webp` was NOT committed. The Meet Johnson section instead shows the approved KeyLane brand emblem.
+- Behind the Scenes uses the locally committed desk photo. There are no CloudFront image URLs in the shipped page.
 
-- Pexels, EJ Merl: https://www.pexels.com/video/a-semi-truck-is-driving-down-the-road-17899033/
-- License: https://www.pexels.com/license/
-- Saved locally at `public/media/keylane-live-drive.mp4` by the prebuild step. It illustrates trucking operations, not a KeyLane-owned fleet.
+## Hero video
 
-## Logos
+- File: `public/media/keylane-live-drive.mp4`
+- Licensed source: Pexels, EJ Merl, https://www.pexels.com/video/a-semi-truck-is-driving-down-the-road-17899033/
+- License: https://www.pexels.com/license/ (free commercial use, subject to Pexels terms and the rights of third parties).
+- The 720p H.264 MP4 was downloaded and compressed once, then committed to GitHub. Current repository size: 352,907 bytes, below 4 MB.
+- The video is illustrative stock footage, NOT a KeyLane truck. The player reads only the committed local MP4, with a locally hosted static poster. No remote video fallback.
 
-The KeyLane brand logo, icon and favicon are user-approved assets.
+## Logos, flags and site assets
+
+- KeyLane logo, favicon and Apple touch icon: user-approved KeyLane artwork in `public/` or `app/`.
+- Language flags are locally served from `public/flags/`.
+- WhatsApp and social icons use local SVGs or inline vector paths.
+- Open Graph imagery is generated from the approved KeyLane logo using `app/opengraph-image.tsx` and served as a 1200 × 630 PNG.
+
+Any future asset additions or replacements require review against the user's approved style and licensing requirements.
