@@ -9,10 +9,10 @@ import sharp from "sharp";
 
 const equipment=[
  ["dry-van",6563903],
- ["reefer",27099094],
+ ["reefer",93398],
  ["flatbed",37538286],
  ["hotshot",14438396],
- ["box-truck",29143224],
+ ["box-truck",31049388],
  ["power-only",33262905],
 ];
 const ownerPrefix="https://d2ol7oe51mr4n9.cloudfront.net/user_3KDHRDt0DvhfzvxUfoeWZe32LTY/";
