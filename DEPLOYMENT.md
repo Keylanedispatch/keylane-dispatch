@@ -1,35 +1,60 @@
-# KeyLane Dispatch website setup
+# KeyLane Dispatch: deployment and launch guide
 
-## Current status
-- Code is in this private repository.
-- The first site version is implemented with Next.js.
-- A deployment has NOT been configured.
-- DNS for keylanedispatch.com has NOT been changed.
+## Current deployment
 
-## Deploy on Vercel
-1. Sign in at https://vercel.com with the KeyLane GitHub account.
-2. Choose Add New > Project and import Keylanedispatch/keylane-dispatch.
-3. Framework preset: Next.js. Keep the default build settings.
-4. Deploy and open the generated preview URL.
-5. Test desktop and mobile layouts, calculator, equipment selector, FAQ, menu, and email inquiry.
-6. In Project > Settings > Domains add keylanedispatch.com and www.keylanedispatch.com.
-7. In Squarespace DNS, set the exact records Vercel provides. Do not change email MX, SPF, DKIM, or DMARC records.
-8. Confirm the website works over HTTPS and mail still arrives at info@keylanedispatch.com and dispatch@keylanedispatch.com.
+- Source: [Keylanedispatch/keylane-dispatch](https://github.com/Keylanedispatch/keylane-dispatch), branch `main`.
+- Host: Vercel, project `keylane-dispatch`.
+- Preview: https://keylane-dispatch.vercel.app
+- Intended production domain: https://keylanedispatch.com (registered at Squarespace). Domain DNS migration has NOT been verified complete.
+- Build: `npm install`, then `npm run build`. The build no longer downloads any images or videos. All website media files are committed to `public/`.
 
-## Important prelaunch checklist
-- Replace the temporary CSS-drawn K logo with the approved final vector logo files.
-- The hero currently references an Unsplash-hosted image. Unsplash permits most commercial uses under its license, but confirm the exact image and any depicted trademark restrictions, then prefer a locally hosted approved asset.
-- Business hours are confirmed: Monday–Friday 7 AM–7 PM ET, Saturday 8 AM–1 PM ET, Sunday closed. Confirm supported languages and equipment categories.
-- Approve the fee policy and any first-load promotion with written terms.
-- Contact form supports direct AJAX Formspree submissions. Create a Formspree form linked to info@keylanedispatch.com, verify the recipient, and set NEXT_PUBLIC_FORMSPREE_ID in Vercel Project Settings > Environment Variables. Deploy again. Until configured, the form is disabled and visitors see the direct email and phone.
-- Test a real successful submission and Formspree's spam controls before launch. The form does not yet sync to a CRM.
-- Add reviewed Privacy Policy and Terms, and connect the secure carrier onboarding workflow.
-- Review FMCSA rules and carrier-agent agreements before public operation.
-- Test keyboard accessibility, reduced motion, mobile performance, and real device behavior.
+## Brand and services
 
-## Local development
-Run npm install, then npm run dev. Open http://localhost:3000.
-Run npm run build to check production compilation.
+- KeyLane Dispatch, “Better Lanes. Better Rates.”
+- English, Français, Español and Haitian Kreyòl.
+- First dispatched load free; next 30 days 5%, then 7%; Friday invoicing; 7 days' cancellation notice.
+- Support hours (Eastern Time): Monday–Friday 7 AM–7 PM, Saturday 8 AM–1 PM, Sunday closed.
+- Customer contact: +1 (404) 203-2894; `info@keylanedispatch.com`.
+- Dispatch operations: `dispatch@keylanedispatch.com`.
+- The forms and marketing pages should not promise loads or specific rates.
 
-## Important: Vercel GitHub login connection
-If Vercel reports “You need to add a Login Connection to your GitHub account first”, sign in to Vercel, open https://vercel.com/account/git, and connect the GitHub account that can access Keylanedispatch/keylane-dispatch. Grant the Vercel GitHub app access to the repository. Team authorization alone is not the same as a Git login connection.
+## Website media
+
+- All six truck images were individually approved by the owner and are committed to `public/equipment/`.
+- `public/team/johnson-desk.webp` is the only owner-supplied team image on the site.
+- Meet Johnson uses the official KeyLane emblem in place of the removed headshot.
+- `public/media/keylane-live-drive.mp4` contains locally hosted, licensed Pexels video, compressed to 720p and less than 4 MB.
+- No build-time media downloader or remote media fallback remains. See `MEDIA_LICENSES.md`.
+
+## Contact form activation
+
+1. Create a Formspree form delivering to `info@keylanedispatch.com` and verify that email address.
+2. In Vercel Project Settings > Environment Variables, add `NEXT_PUBLIC_FORMSPREE_ID` with the actual form ID.
+3. Redeploy the site, then test successful submission and spam protection using a controlled, consensual inquiry.
+4. Until the form is configured, website visitors should use the visible business phone and email contact links.
+5. Do not request driver identity or financial documents through the public inquiry form.
+
+## Connect the domain at Squarespace
+
+1. In the Vercel project, add both `keylanedispatch.com` and `www.keylanedispatch.com`.
+2. Vercel provides the authoritative DNS records for this specific project.
+3. In Squarespace DNS, add or change only the web A/CNAME records Vercel specifies.
+4. Preserve all existing mail MX, SPF, DKIM, and DMARC records.
+5. Verify HTTPS, site redirects, and delivery to `info@` and `dispatch@` after DNS propagation.
+
+## Search and social
+
+- Site metadata and Organization JSON-LD: `app/layout.tsx`.
+- Sitemap: `/sitemap.xml` served by `app/sitemap.ts`.
+- Robots: `/robots.txt` served by `app/robots.ts`.
+- Branded Open Graph image: `/opengraph-image`, generated by `app/opengraph-image.tsx` at 1200 × 630.
+- Social accounts: Instagram, Facebook, YouTube, TikTok in the footer and contact section.
+
+## Prelaunch checks
+
+- Run `npm run build` and inspect Vercel deployment logs.
+- Open the homepage on desktop and mobile; verify 6 approved images, whole-truck fit, and light text contrast.
+- Verify that the local MP4 loads and that reduced-motion preferences get a static poster.
+- Confirm Formspree delivery, privacy information, carrier agreement, and FMCSA dispatch-agent compliance.
+- Verify all social links and accessible navigation.
+- Confirm the live domain and business email DNS without accidentally altering mail settings.
