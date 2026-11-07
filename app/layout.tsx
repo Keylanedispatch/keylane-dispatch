@@ -5,7 +5,7 @@ export const metadata: Metadata = {
  description: "Truck dispatch services for U.S. owner-operators and small fleets. Dry van, reefer, flatbed, hotshot, box truck and power-only support. First load free.",
  metadataBase: new URL("https://keylanedispatch.com"),
  alternates:{canonical:"https://keylanedispatch.com"},
- robots:{index:true,follow:true,googleBot:{index:true,follow:true,maxImagePreview:"large",maxSnippet:-1,maxVideoPreview:-1}},
+ robots:{index:true,follow:true,googleBot:{index:true,follow:true,"max-image-preview":"large","max-snippet":-1,"max-video-preview":-1}},
  openGraph: {title:"KeyLane Dispatch | Better Lanes. Better Rates.",description:"Professional truck dispatching built around your business.",type:"website",url:"https://keylanedispatch.com",images:[{url:"/opengraph-image",width:1200,height:630,alt:"KeyLane Dispatch. Better lanes. Better rates."}]},
  twitter:{card:"summary_large_image",title:"KeyLane Dispatch | Better Lanes. Better Rates.",images:["/opengraph-image"]},
 };
