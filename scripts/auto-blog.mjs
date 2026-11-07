@@ -17,7 +17,7 @@ const sources=[
 const now=new Date();
 const DRY_RUN=process.argv.includes("--dry-run");
 const MODEL=process.env.BLOG_AI_MODEL||"gpt-4o-mini";
-const DAILY_MAX=1, WEEKLY_MAX=2;
+const WEEKLY_MAX=2;
 const MAX_AGE_DAYS=5;
 const decode=s=>s.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1")
  .replace(/<[^>]*>/g," ").replace(/&amp;/g,"&").replace(/&quot;/g,'"')
