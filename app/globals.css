@@ -295,3 +295,11 @@ body{background:#fff;color:#121820}
  .hero-moving-truck{transform:none!important}
  .social-link{transition:none!important}
 }
+
+/* Moving-image loop, independent of all hero copy */
+.hero-motion-svg{display:block;position:absolute;inset:0;width:100%;height:100%;overflow:hidden;filter:brightness(1.38) contrast(1.02) saturate(1.04)}
+.hero-visual-window{isolation:isolate;contain:paint}
+.hero-road-motion{z-index:2;opacity:.7}
+.hero-visual{contain:paint}
+@media(max-width:820px){.hero-motion-svg{filter:brightness(1.53) contrast(1.01) saturate(1.04)}}
+@media(prefers-reduced-motion:reduce){.hero-road-motion{display:none}}
