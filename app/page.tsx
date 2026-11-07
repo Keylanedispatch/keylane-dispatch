@@ -90,7 +90,7 @@ export default function Home(){
    <div className="container hero-inner">
     <div className="hero-visual" aria-label="Video of a red semi truck driving on the highway">
       <video className="hero-driving-video" autoPlay muted loop playsInline preload="metadata" poster="/keylane-hero-truck.svg" aria-label="Real driving video of a semi truck">
-        <source src="https://videos.pexels.com/video-files/17899033/17899033-hd_1920_1080_24fps.mp4" type="video/mp4"/>
+        <source src="/media/keylane-live-drive.mp4" type="video/mp4"/><source src="https://videos.pexels.com/video-files/17899033/17899033-hd_1920_1080_24fps.mp4" type="video/mp4"/>
       </video>
       <div className="hero-video-credit">Real truck. Real road. Real motion.</div>
     </div>
