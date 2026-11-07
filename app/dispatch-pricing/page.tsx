@@ -1,0 +1,14 @@
+import type {Metadata} from "next";
+import Link from "next/link";
+import {SEOLayout,BASE} from "../seo/SEOLayout";
+export const metadata:Metadata={title:"Truck Dispatch Pricing: First Load Free, 5% Then 7% | KeyLane",description:"Clear dispatch service pricing for U.S. motor carriers: first load free, 5% for 30 days, then 7%. Friday invoices and 7-day cancellation notice.",alternates:{canonical:BASE+"/dispatch-pricing"}};
+export default function Pricing(){
+ return <SEOLayout eyebrow="CLEAR DISPATCH FEES" title="Truck dispatch pricing you can understand" description="Know how much KeyLane charges before getting started. We base the dispatch fee on the gross amount of each dispatched load, with a free first-load offer and stated cancellation terms." crumbs={[{label:"Dispatch Pricing",path:"/dispatch-pricing"}]}>
+  <section className="seo-content-section"><div className="container"><div className="seo-price-grid">
+   <article><span>WELCOME OFFER</span><strong>FREE</strong><h2>Your first dispatched load</h2><p>No KeyLane dispatch service fee on the first load we dispatch for your carrier.</p></article>
+   <article><span>INTRODUCTORY PERIOD</span><strong>5%</strong><h2>First 30 days</h2><p>Dispatch service fee during your first 30 days, following the free first-load offer.</p></article>
+   <article><span>STANDARD RATE</span><strong>7%</strong><h2>After 30 days</h2><p>Our standard dispatch rate, applied to the gross value of dispatched loads.</p></article>
+  </div></div></section>
+  <section className="seo-content-section seo-soft"><div className="container seo-prose"><h2>Example: a $2,500 dispatched load</h2><p>At the 5% introductory rate, the dispatch service fee is $125. At the 7% standard rate, the fee is $175. Your first dispatched load carries a $0 KeyLane dispatch fee. These examples are percentages of gross load revenue, not estimates of your net profit or operating costs.</p><h2>Invoicing and cancellation</h2><p>We issue invoices each Friday. You may cancel with seven days' notice. Review all final obligations in your written carrier dispatch agreement before work begins.</p><h2>Who gets paid by the broker?</h2><p>Your carrier or factoring company receives freight payments directly. KeyLane does not take possession of your freight money. Our dispatch service fee is separate from the broker's freight payment.</p><h2>What's not included?</h2><p>Fuel, insurance, driver compensation, repairs, tolls, cargo handling, permits, and other carrier costs are not covered by the dispatch service fee. Freight and rate levels are not guaranteed.</p><p>Learn more about <Link href="/owner-operator-dispatch">owner-operator dispatch support</Link> and <Link href="/truck-dispatch-services">included services</Link>.</p></div></section>
+ </SEOLayout>;
+}
