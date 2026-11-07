@@ -4,7 +4,8 @@ export const metadata: Metadata = {
  title: "KeyLane Dispatch | Better Lanes. Better Rates.",
  description: "Carrier-focused freight dispatch support for U.S. owner-operators and small fleets. Explore our services, equipment types, and dispatch fee calculator.",
  metadataBase: new URL("https://keylanedispatch.com"),
- openGraph: {title:"KeyLane Dispatch | Better Lanes. Better Rates.",description:"Professional truck dispatching built around your business.",type:"website"},
+ openGraph: {title:"KeyLane Dispatch | Better Lanes. Better Rates.",description:"Professional truck dispatching built around your business.",type:"website",url:"https://keylanedispatch.com",images:[{url:"/opengraph-image",width:1200,height:630,alt:"KeyLane Dispatch. Better lanes. Better rates."}]},
+ twitter:{card:"summary_large_image",title:"KeyLane Dispatch | Better Lanes. Better Rates.",images:["/opengraph-image"]},
 };
 const organizationSchema={
  "@context":"https://schema.org",
