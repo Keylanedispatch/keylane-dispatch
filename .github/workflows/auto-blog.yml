@@ -1,0 +1,40 @@
+name: KeyLane Automatic Trucking News Blog
+
+on:
+  schedule:
+    - cron: '23 13 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: keylane-auto-blog
+  cancel-in-progress: false
+
+jobs:
+  auto-blog:
+    runs-on: ubuntu-latest
+    env:
+      BLOG_AI_MODEL: gpt-4o-mini
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Find relevant trucking news and draft original analysis
+        run: node scripts/auto-blog.mjs
+      - name: Commit only approved machine-validated blog post
+        run: |
+          if [ -n "$(git status --porcelain -- content/blog)" ]; then
+            git config user.name "KeyLane News Automation"
+            git config user.email "info@keylanedispatch.com"
+            git add content/blog/*.json
+            git commit -m "Publish verified trucking market briefing"
+            git push origin main
+          else
+            echo "No new article passed relevance and quality gates."
+          fi
