@@ -7,10 +7,10 @@ At build time, `scripts/prepare-media.mjs` retrieves the following original Pexe
 | Local asset | Source URL | Photographer | License |
 |---|---|---|---|
 | dry-van.webp | https://www.pexels.com/photo/red-semi-truck-on-the-road-6563903/ | Quintin Gellar | Pexels free |
-| reefer.webp | https://www.pexels.com/photo/view-of-parked-trucks-27099094/ | Tom Jackson | Pexels free |
+| reefer.webp | https://www.pexels.com/photo/white-dump-truck-near-pine-tress-during-daytime-93398/ | 500photos.com | Pexels free |
 | flatbed.webp | https://www.pexels.com/photo/red-semi-truck-on-scenic-oregon-highway-37538286/ | Alex Kovshovik | Pexels free |
 | hotshot.webp | https://www.pexels.com/photo/white-pickup-truck-on-the-road-14438396/ | Matt Weissinger | Pexels free |
-| box-truck.webp | https://www.pexels.com/photo/white-delivery-truck-parked-at-night-on-street-29143224/ | Alex Quezada | Pexels free |
+| box-truck.webp | https://www.pexels.com/photo/white-delivery-truck-on-urban-road-in-daylight-31049388/ | NGUYỄN THÀNH NHƠN | Pexels free |
 | power-only.webp | https://www.pexels.com/photo/green-semi-truck-parked-under-dramatic-sky-33262905/ | R9 Media Photo Collective | Pexels free |
 
 NOTE: Some source photos may depict an illustrative rather than exact equipment configuration, especially hotshot (pickup without a visible trailer) and power-only. Those need replacement with exact, verified images before claiming precise truck-type representation. Check original photographs for visible company names, logos and plates before public use.
