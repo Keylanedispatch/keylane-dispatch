@@ -56,6 +56,9 @@ async function fetchFeed(feed){
     const days=(now-published)/86400000;
     if(days<0||days>MAX_AGE_DAYS)return null;
     if(!relevant.test(title+" "+summary)||!useful.test(title+" "+summary)||highRisk.test(title+" "+summary))return null;
+    // Avoid peripheral stories that merely mention trucking somewhere in an RSS teaser.
+    if(!/\\b(truck|trucking|truckload|truckers|carrier|carriers|freight|diesel|reefer|flatbed|spot rate|shipping rate|haulage|logistics)\\b/i.test(title))return null;
+    if(/\\b(drone|robotaxi|passenger|aviation|airline|spacecraft|retail app|video game|celebrity)\\b/i.test(title))return null;
     if(posts.some(p=>p.sourceUrl===u.href))return null;
     return {title,sourceTitle:feed.name,sourceUrl:u.href,summary,publishedAt:published.toISOString(),score:(relevant.test(title)?3:0)+(useful.test(title)?3:0)+Math.max(0,5-days)};
    }catch{return null;}
