@@ -10,7 +10,7 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap> {
   {path:"/owner-operator-dispatch",priority:.9,changeFrequency:"monthly" as const},
   {path:"/dispatch-pricing",priority:.8,changeFrequency:"monthly" as const},
   ...equipmentSEO.map(e=>({path:"/equipment/"+e.slug,priority:.8,changeFrequency:"monthly" as const})),
-  ...articles.length?[{path:"/blog",priority:.7,changeFrequency:"weekly" as const}]:[],
+  ...(articles.length ? [{path:"/blog",priority:.7,changeFrequency:"weekly" as const}] : []),
   ...articles.map(article=>({path:"/blog/"+article.slug,priority:.7,changeFrequency:"monthly" as const})),
   {path:"/privacy",priority:.2,changeFrequency:"yearly" as const}
  ];
