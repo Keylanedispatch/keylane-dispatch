@@ -89,7 +89,11 @@ export default function Home(){
    <div className="container hero-inner">
     <div className="hero-visual" role="img" aria-label="Animated American long-nose semi truck driving across a highway">
       <div className="hero-visual-window">
-        <div className="hero-moving-truck"/>
+        <svg className="hero-motion-svg" viewBox="0 0 1000 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <image href="/keylane-hero-truck.svg" x="-160" y="-40" width="1320" height="660" preserveAspectRatio="xMidYMid slice">
+          <animateTransform attributeName="transform" type="translate" values="-75 0;80 0;-75 0" keyTimes="0;0.5;1" dur="6s" repeatCount="indefinite"/>
+        </image>
+      </svg>
         <div className="hero-road-motion" aria-hidden="true"><i/><i/><i/></div>
       </div>
     </div>
