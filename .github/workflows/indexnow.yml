@@ -1,0 +1,35 @@
+name: Notify IndexNow after publication
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'public/**'
+      - 'scripts/indexnow-submit.mjs'
+      - '.github/workflows/indexnow.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-production
+  cancel-in-progress: true
+
+jobs:
+  submit-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Allow Vercel to finish publishing
+        run: sleep 90
+      - name: Submit changed public URLs via IndexNow
+        env:
+          INDEXNOW_ALL: ${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}
+        run: node scripts/indexnow-submit.mjs
