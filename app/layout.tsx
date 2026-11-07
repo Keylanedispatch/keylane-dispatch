@@ -6,6 +6,21 @@ export const metadata: Metadata = {
  metadataBase: new URL("https://keylanedispatch.com"),
  openGraph: {title:"KeyLane Dispatch | Better Lanes. Better Rates.",description:"Professional truck dispatching built around your business.",type:"website"},
 };
+const organizationSchema={
+ "@context":"https://schema.org",
+ "@type":"Organization",
+ name:"KeyLane Dispatch",
+ url:"https://keylanedispatch.com",
+ logo:"https://keylanedispatch.com/keylane-logo.svg",
+ telephone:"+1-404-203-2894",
+ email:"info@keylanedispatch.com",
+ sameAs:[
+ "https://www.instagram.com/keylanedispatch",
+ "https://www.facebook.com/keylanedispatch/",
+ "https://www.youtube.com/@KeyLaneDispatch",
+ "https://www.tiktok.com/@keylane.dispatch"
+ ]
+};
 export default function RootLayout({children}:{children:React.ReactNode}){
- return <html lang="en"><body>{children}</body></html>
+ return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(organizationSchema).replace(/</g,"\\u003c")}} />{children}</body></html>
 }
