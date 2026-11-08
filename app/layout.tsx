@@ -24,7 +24,7 @@ const organizationSchema={
  email:"info@keylanedispatch.com",
  sameAs:[
  "https://www.instagram.com/keylanedispatch",
- "https://www.facebook.com/keylanedispatch/",
+ "https://www.facebook.com/keylanedispatch.usa/",
  "https://www.youtube.com/@KeyLaneDispatch",
  "https://www.tiktok.com/@keylane.dispatch"
  ]
