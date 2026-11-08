@@ -2,7 +2,7 @@ import type {ReactNode} from "react";
 
 const socialProfiles=[
  {name:"Instagram",url:"https://www.instagram.com/keylanedispatch"},
- {name:"Facebook",url:"https://www.facebook.com/keylanedispatch/"},
+ {name:"Facebook",url:"https://www.facebook.com/keylanedispatch.usa/"},
  {name:"YouTube",url:"https://www.youtube.com/@KeyLaneDispatch"},
  {name:"TikTok",url:"https://www.tiktok.com/@keylane.dispatch"}
 ] as const;
